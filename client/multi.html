@@ -1,0 +1,36 @@
+<head>
+    <title>Multi-person Poetry: one word at a time.</title>
+</head>
+
+<body>
+<main>    
+    <h1>Multi-person Poetry:<small>one word at a time</small></h1>
+    <div class="center">
+    	{{> twoetry}}
+    </div>	        
+</main>	  
+
+<br>
+<hr>
+<footer class="container">
+  <p>Made by Andy Hayes</p>
+</footer>	        
+</body>
+
+<template name="twoetry">
+  <div class="twoet">
+  	{{> twitsplay}}
+  </div>
+  <div class="details">
+  	// this is where a text box for a word entry will be.  Should be limited to a set length and exclude code-like patterns #, DM and @.
+	<form class="form-horizontal">
+      <input type="text" name="poetry" placeholder="Poetry Here...one word only">
+       <button id="insert" class="btn btn-success">Insert</button>
+     </form> 
+  </div>
+</template>
+
+<template name="twitsplay">
+    // template that puts together and displays tweet from server	
+
+</template>
