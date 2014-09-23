@@ -4,33 +4,33 @@
 
 <body>
 <main>    
-    <h1>Multi-person Poetry:<small>one word at a time</small></h1>
-    <div class="center">
+    <h1>MultiPersonPoem: one word at a time :)</h1>
+    <div>
     	{{> twoetry}}
     </div>	        
 </main>	  
 
 <br>
 <hr>
-<footer class="container">
-  <p>Made by Andy Hayes</p>
+
+<footer>
+  <p>Once enough people have added a word, the poem will be tweeted to @multipersonpoem.</p>
+  <p><small>Made by Andy Hayes</small></p>
 </footer>	        
 </body>
 
 <template name="twoetry">
-  <div class="twoet">
-  	{{> twitsplay}}
+  <div>
+  	<h2><span id="display"><small>This is where the poem will be displayed as peeople add to it {{tweet}}</small></span></h2>
   </div>
-  <div class="details">
-  	// this is where a text box for a word entry will be.  Should be limited to a set length and exclude code-like patterns #, DM and @.
-	<form class="form-horizontal">
+  <br>
+
+  <div>
+  	
+	  <form class="form-horizontal">
       <input type="text" name="poetry" placeholder="Poetry Here...one word only">
-       <button id="insert" class="btn btn-success">Insert</button>
-     </form> 
+      <button id="insert" class="btn btn-success">Insert</button>
+    </form> 
   </div>
 </template>
 
-<template name="twitsplay">
-    // template that puts together and displays tweet from server	
-
-</template>

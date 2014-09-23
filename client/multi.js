@@ -1,5 +1,8 @@
+/**  
+
+  // set variable to hold the poem string
   twitterpoem = '';
-  
+
 
 
 
@@ -11,3 +14,7 @@
 		// something like Word.insert() and if/else for exceptions(dm, fuck, too long)
 	    }
     })
+
+*/
+
+console.log("test from client");
