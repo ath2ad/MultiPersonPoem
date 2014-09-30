@@ -8,7 +8,7 @@ Meteor.startup(function () {
                    "Steel",
                    "Technology balances without"];
       for (var i = 0; i < contents.length; i++)
-        Poetry.insert({content: contents[i]);
+        Poetry.insert({content: contents[i]});
     }
   });
 

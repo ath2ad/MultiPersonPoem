@@ -4,7 +4,8 @@
 
 <body>
 <main class="container">    
-  <h1>MultiPersonPoem: one word per poem</h1>
+  <h1>MultiPersonPoem: real-time collaboration</h1>
+  <br>
   <div class="row">
     {{> multipoem}}
   </div>  
@@ -13,6 +14,7 @@
 <br>
 <hr>
 <footer class="container">
+  <h4>Poems publish to <a href="https://twitter.com/multipersonpoem">@multipersonpoem</a>. Follow all of us.</h4>
   <p>Made by Andy Hayes</p>
 </footer>	        
 </body>
@@ -20,32 +22,27 @@
 <template name="multipoem">
   <div class="span4">
     <form class="form-horizontal">
-      <input type="text" name="word" placeholder="what's the word?">
-      <button id='insert' class="btn btn-success">Insert</button>
-      <button id='fresh_poem' class="btn btn-success">Fresh Start</button>
+      <span class="help-block">Select a poem, add a word!</span>
+      <input type="text" class="form-control" name="word" placeholder="what's the word?">
+      <div class="btn-group">
+        <button type="button" id='insert' class="btn btn-success">Insert to Poem</button>
+        <button type="button" id='fresh_poem' class="btn btn-info">Start Fresh</button>
+      </div>  
+
     </form>
+
   </div>
   <div class="span8">
-    
-    <table id="poetry" class="table table-hover">
-      <thead>
-        <tr>
-          <th>Poem</th>
-        </tr>
-      </thead>
         {{#each poetry}}
           {{> poem}}
         {{/each}}
-    </table>
-
   </div>
-  <p class="lead">Select a poem, add a word!</p> 
 </template>
 
 <template name="poem">
-  <tr class="{{selected}}">
-    <td><span class="lead">{{content.content}}</span></td>
-  </tr>
+    <span class="{{selected}}">{{content}}</span>
+    <br>
+    <hr>  
 </template>
 
 

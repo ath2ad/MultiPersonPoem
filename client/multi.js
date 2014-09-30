@@ -1,20 +1,23 @@
+// Sets alphabetical order
 Session.setDefault("sort", {content: 1}); 
 
+// helpers: query poems from database and highlight html for selected poem
 Template.multipoem.poetry = function () {
     return Poetry.find({}, {sort: Session.get("sort")});
   };
 
 Template.poem.selected = function () {
-	return Session.equals("selected_poem", this._id) ? "warning" : '';
+	return Session.equals("selected_poem", this._id) ? "lead" : "lead_noselected";
 }; 
 
-
+// event handlers for adding words and new poems; twit method evoked here
 Template.multipoem.events({
 	'click #insert': function() {
 		var n = $("input[name=word]").val();
-        if (n != "") {
+
+        if (n != "" && n.length < 22 && n.match(" ") == null) {
         	var words = Poetry.findOne(Session.get("selected_poem"));
-        	var addwrd = words.content + n;
+        	var addwrd = words.content + " " + n;
 
         	if (addwrd.length > 132 && addwrd.length < 140) {
 
@@ -35,15 +38,27 @@ Template.multipoem.events({
             }
             else if (addwrd.length >= 140) {
             	$("input[name=word]").val('Too long. Try Again');
+            	// TODO add a pause and then clear
+            	Meteor.setTimeout(function() {
+            		$("input[name=word]").val('');
+
+            	}, 3000);
             }
             else {
                 Poetry.update(Session.get("selected_poem"), {$set: {content: addwrd}});
                 $("input[name=word]").val('');
             }
+            return false;
         }
-        // return false so the page will not reload
-        return false;
+        $("input[name=word]").val('No spaces|22 letter limit');
+        
+        // add a pause and then clear
+        Meteor.setTimeout(function() {
+            $("input[name=word]").val('');
+        }, 2200);
 
+        // return false so page doesn't reload
+        return false;
 	},
 	'click #fresh_poem': function() {
 	    var n = $("input[name=word]").val();
@@ -53,6 +68,7 @@ Template.multipoem.events({
         }
         // return false so the page will not reload
         return false;
+
 	}
 
 });
@@ -63,5 +79,3 @@ Template.poem.events({
 	}
 
 });
-
-console.log("test from client");

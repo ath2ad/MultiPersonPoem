@@ -1,0 +1,32 @@
+
+body {
+    background-color: #F9FCFD;
+    font-family: "Courier New";
+
+}
+
+button {
+	font-family: "Courier New";
+}
+
+input {
+	font-family: "Courier New";
+}
+
+h1 {
+	 border: 5px solid red;
+	 padding: 10px;
+}
+
+.lead {
+    cursor: pointer;
+    padding: 2px;
+    background-color: #00fff0;
+    
+}
+
+.lead_noselected {
+	cursor: pointer;
+    padding: 6px;
+    font-size: large
+}
