@@ -62,14 +62,28 @@ Template.multipoem.events({
 	},
 	'click #fresh_poem': function() {
 	    var n = $("input[name=word]").val();
-        if (n != "") {
+        if (n != "" && n.length < 22 && n.match(" ") == null) {
             Poetry.insert({content: n});
             $("input[name=word]").val('');
         }
+        else {
+            $("input[name=word]").val('No spaces|22 letter limit');
+        
+        // add a pause and then clear
+            Meteor.setTimeout(function() {
+                $("input[name=word]").val('');
+            }, 2200);
+
+        }
         // return false so the page will not reload
         return false;
-
-	}
+	},
+    'keypress input': function(event) {
+        if (event.charCode == 13) {
+            
+            return false;
+        }
+    }
 
 });
 

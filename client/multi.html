@@ -22,8 +22,8 @@
 <template name="multipoem">
   <div class="span4">
     <form class="form-horizontal">
-      <span class="help-block">Select a poem, add a word!</span>
-      <input type="text" class="form-control" name="word" placeholder="what's the word?">
+      <span id="explain" class="help-block">Select a poem, add a word!</span>
+      <input type="text" class="form-control" name="word" placeholder="what's the word?" autocomplete="off">
       <div class="btn-group">
         <button type="button" id='insert' class="btn btn-success">Insert to Poem</button>
         <button type="button" id='fresh_poem' class="btn btn-info">Start Fresh</button>

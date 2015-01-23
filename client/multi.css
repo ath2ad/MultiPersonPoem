@@ -16,17 +16,27 @@ input {
 h1 {
 	 border: 5px solid red;
 	 padding: 10px;
+     cursor: default;
+}
+
+#explain {
+    cursor: default;
 }
 
 .lead {
-    cursor: pointer;
-    padding: 2px;
+    cursor: progress;
+    padding: 5px 10px; 
     background-color: #00fff0;
+    border: 1px solid red;
     
 }
 
 .lead_noselected {
 	cursor: pointer;
     padding: 6px;
-    font-size: large
+    font-size: large;
+}
+
+.lead_noselected:hover {
+    background-color: #d8ebea;
 }
